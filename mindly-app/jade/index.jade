@@ -1,24 +1,25 @@
 doctype html
-html
+html(lang="en")
 	head
-		meta(name="viewport", content="initial-scale=1, maximun-scale=1, user-scalable=no, width=device-width")
+		meta(name="viewport", content="initial-scale=1, width=device-width")
 
-		//- Ionic CSS
-		link(href="../lib/ionic/css/ionic.css", rel="stylesheet")
-		link(href="../css/styles.css", rel="stylesheet")
+		//- Bootstrap CSS
+		link(href="../lib/bootstrap/dist/css/bootstrap.min.css", rel="stylesheet")
+
+		//-  Este archivo no tiene nada, aqui vas a incluir estilos propios para alterar el css de bootstrap
+		link(href="../css/styles.css", rel="stylesheet") 
 
 	body(ng-app="mindlyApp")
 
-		ion-nav-view
-
-		//- Ionic JS
-		script(src="../lib/ionic/js/ionic.bundle.js")
-
-		//- Cordova JS !!! FALTA INCLUIRLO EN EL PATH !!!
-			script(src="cordova.js")
+		ui-view
+			
+		//- Angular
+		script(src="../lib/angular/angular.min.js")
+		script(src="../lib/angular-ui-router/release/angular-ui-router.min.js")
 
 		//- General
 		script(src="../lib/underscore/underscore.js")
+		script(src="../lib/bootstrap/dist/js/bootstrap.js")
 
 		//- MindlyApp
 		script(src="../js/app.js")
