@@ -7,7 +7,8 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 angular.module('mindlyApp', [
-    'ionic',
+    'ngSanitize',
+    'ngAnimate',
     'underscore',
     'ui.router',
     ])
@@ -17,8 +18,7 @@ angular.module('mindlyApp', [
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
-  });
-}])
+  }])
 
 .config(['$httpProvider', '$stateProvider', '$urlRouterProvider', function($httpProvider, $stateProvider, $urlRouterProvider) {
 
@@ -41,17 +41,7 @@ angular.module('mindlyApp', [
  		controller: "MenuCtrl",
  	})
 
- 	.state('menu.header', {
- 		url: "/header",
-    views: {
-      'header' : {
-        templateUrl: "views/general/header.html",
-        controller: "HeaderCtrl",
-      },
-    }, 
- 	})
-
-  .state('menu.header.home', {
+  .state('menu.home', {
     url: "/home",
     views: {
       'content': {
@@ -61,7 +51,7 @@ angular.module('mindlyApp', [
     }, 
   })
 
-  .state('menu.header.task-detail', {
+  .state('menu.task-detail', {
     url: "/:task",
     views: {
       'content': {
@@ -71,7 +61,7 @@ angular.module('mindlyApp', [
     }, 
   })
 
-  .state('menu.header.projects', {
+  .state('menu.projects', {
       url: "/projects",
       views: {
         'content': {
@@ -81,7 +71,7 @@ angular.module('mindlyApp', [
     })
 
   // ROUTES FOR CREATING A NEW PROJECT
-  .state('menu.header.new-project', {
+  .state('menu.new-project', {
     url: "/newProject",
     views: {
       'content': {
@@ -91,22 +81,22 @@ angular.module('mindlyApp', [
     }, 
   })
 
-  .state('menu.header.new-project.step1', {
+  .state('menu.new-project.step1', {
     url: "/step1",
     templateUrl: "views/projects/new-project-step1.html",
   })
 
-  .state('menu.header.new-project.step2', {
+  .state('menu.new-project.step2', {
     url: "/step2",
     templateUrl: "views/projects/new-project-step2.html",
   })
 
-  .state('menu.header.new-project.step3', {
+  .state('menu.new-project.step3', {
     url: "/step3",
     templateUrl: "views/projects/new-project-step3.html",
   })
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/menu/header/home');
+  $urlRouterProvider.otherwise('/menu/home');
 
 }]);
